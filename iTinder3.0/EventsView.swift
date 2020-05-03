@@ -17,6 +17,8 @@ struct EventsView: View {
         let color: Color
     }
     
+
+    
     static let colors: [String: Color] = ["it": .purple, "hackathon": .red, "talk": .blue, "meetup": .green]
     
     var eventList = [
