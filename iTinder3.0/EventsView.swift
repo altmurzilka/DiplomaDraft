@@ -14,20 +14,9 @@ struct EventsView: View {
     
     var body: some View {
         NavigationView {
-            List (showEvent) {event in
-                NavigationLink(destination: Text(event.event)) {
-                Image(event.imageName)
-                    .resizable()
-                    .frame(width: 90.0, height: 90.0)
-                VStack(alignment: .leading) {
-                    Text(event.event)
-                        .font(.headline)
-                        .padding(.bottom, 70)
-                }
-                Spacer()
-                Text(event.tag).padding(.top, 70)
+            List(showEvent) { event in
+                EventCell(event: event)
             }.navigationBarTitle("События", displayMode: .inline)
-            }
         }
     }
 }
@@ -35,5 +24,43 @@ struct EventsView: View {
 struct EventsView_Previews: PreviewProvider {
     static var previews: some View {
         EventsView(showEvent: Edata)
+    }
+}
+
+struct EventCell: View {
+    let event: EventsData
+    
+    var body: some View {
+        List(event) {event in
+            NavigationLink(
+            destination: EventDetail(item: event)) {
+            Image(event.imageName)
+                .resizable()
+                .frame(width: 90.0, height: 90.0)
+            VStack(alignment: .leading) {
+                Text(event.event)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 70)
+            }
+            Spacer()
+            Text(event.tag).padding(.top, 70)
+        }
+        
+        //        List (showEvent) {event in
+        //            NavigationLink(destination: Text(event.event)) {
+        //                Image(event.imageName)
+        //                    .resizable()
+        //                    .frame(width: 90.0, height: 90.0)
+        //                VStack(alignment: .leading) {
+        //                    Text(event.event)
+        //                        .font(.headline)
+        //                        .padding(.bottom, 70)
+        //                }
+        //                Spacer()
+        //                Text(event.tag).padding(.top, 70)
+        //            }
+        //        }
+        }
     }
 }

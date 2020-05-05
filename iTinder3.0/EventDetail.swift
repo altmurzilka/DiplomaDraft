@@ -28,8 +28,6 @@ struct EventDetail: View {
 
 struct EventDetail_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            EventDetail(item: Edata[1])
-        }
+        EventDetail(item: Edata[2])
     }
 }
