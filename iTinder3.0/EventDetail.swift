@@ -10,24 +10,28 @@ import SwiftUI
 
 struct EventDetail: View {
     
-    var item: EventsData
+    var event: String
+    var description: String
+    var tag: String
+    var imageName: String
     
     var body: some View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
-                Image(item.imageName)
+                
+                Image(imageName)
             }
-            Text(item.description).padding()
+            Text(description).padding()
             
             Button("Хочу сюда!") {
             }.font(.headline)
             Spacer()
-        }.navigationBarTitle(Text(item.event), displayMode: .inline)
+        }.navigationBarTitle(Text(event))
     }
 }
 
 struct EventDetail_Previews: PreviewProvider {
     static var previews: some View {
-        EventDetail(item: Edata[2])
+        EventDetail(event: "Hack Day", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et faucibus lectus. Phasellus dapibus nunc a arcu feugiat, ut euismod enim lobortis. Integer sed odio felis.", tag: "hackathon", imageName: "hackday")
     }
 }

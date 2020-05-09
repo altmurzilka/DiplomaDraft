@@ -12,7 +12,7 @@ struct EventsData: Identifiable {
     let event: String
     let description: String
     let tag: String
-    let imageName: String
+    var imageName: String 
 }
 
 let Edata = [

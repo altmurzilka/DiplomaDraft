@@ -29,23 +29,25 @@ struct EventsView_Previews: PreviewProvider {
 
 struct EventCell: View {
     let event: EventsData
-    
     var body: some View {
         return NavigationLink(
-        destination: EventDetail(item: event)) {
+        destination: EventDetail(event: event.event, description: event.description, tag: event.tag, imageName: event.imageName)) {
             Image(event.imageName)
                 .resizable()
                 .frame(width: 90.0, height: 90.0)
-            VStack(alignment: .leading) {
-                Text(event.event)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding(.bottom, 70)
-            }
-            Spacer()
-            Text(event.tag).padding(.top, 70)
-        }
+      
+                VStack(alignment: .leading) {
+                    Text(event.event)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 70)
+                }
+                Spacer()
         
+                    Text(event.tag).padding(.top, 70)
+       
+            
+        }
     }
 }
 
