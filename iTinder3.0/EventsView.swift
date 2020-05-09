@@ -31,9 +31,8 @@ struct EventCell: View {
     let event: EventsData
     
     var body: some View {
-        List(event) {event in
-            NavigationLink(
-            destination: EventDetail(item: event)) {
+        return NavigationLink(
+        destination: EventDetail(item: event)) {
             Image(event.imageName)
                 .resizable()
                 .frame(width: 90.0, height: 90.0)
@@ -47,20 +46,6 @@ struct EventCell: View {
             Text(event.tag).padding(.top, 70)
         }
         
-        //        List (showEvent) {event in
-        //            NavigationLink(destination: Text(event.event)) {
-        //                Image(event.imageName)
-        //                    .resizable()
-        //                    .frame(width: 90.0, height: 90.0)
-        //                VStack(alignment: .leading) {
-        //                    Text(event.event)
-        //                        .font(.headline)
-        //                        .padding(.bottom, 70)
-        //                }
-        //                Spacer()
-        //                Text(event.tag).padding(.top, 70)
-        //            }
-        //        }
-        }
     }
 }
+
