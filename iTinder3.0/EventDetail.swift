@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct EventDetail: View {
+    @State private var showingAlert = false
     
     var event: String
     var description: String
@@ -23,8 +24,15 @@ struct EventDetail: View {
             }
             Text(description).padding()
             
-            Button("Хочу сюда!") {
+            Button(action: {
+                self.showingAlert = true
+            }) {
+                Text("Хочу сюда!")
             }.font(.headline)
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Стоп"), message: Text("Сначала регистрация, сучара"), dismissButton: .default(Text("ясн")))
+            }
+            
             Spacer()
         }.navigationBarTitle(Text(event))
     }

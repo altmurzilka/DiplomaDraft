@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            EventsView()
+            EventsView(showEvent: Edata)
                 .tabItem {
                     VStack {
                         Image(systemName: "list.bullet")
