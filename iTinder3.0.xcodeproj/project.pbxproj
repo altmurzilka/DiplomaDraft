@@ -53,6 +53,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F18CA3F4246BFC74003F6FA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F18CA3F5246BFCB2003F6FA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F19E0212244D819000410849 = {
 			isa = PBXGroup;
 			children = (
@@ -72,11 +86,13 @@
 		F19E021D244D819000410849 /* iTinder3.0 */ = {
 			isa = PBXGroup;
 			children = (
+				F18CA3F5246BFCB2003F6FA6 /* View */,
+				F18CA3F4246BFC74003F6FA6 /* Model */,
 				F19E021E244D819000410849 /* AppDelegate.swift */,
 				F19E0220244D819000410849 /* SceneDelegate.swift */,
 				F19E0222244D819000410849 /* ContentView.swift */,
-				F126E36C244E0F3700826FAC /* EventsView.swift */,
 				F1B249F424589700007FFEB6 /* EventsData.swift */,
+				F126E36C244E0F3700826FAC /* EventsView.swift */,
 				F1378E3A245F18C60005E2EC /* EventDetail.swift */,
 				F1C8DA1924680E1500325315 /* UsersData.swift */,
 				F126E36A244E04DA00826FAC /* RegistrationView.swift */,
