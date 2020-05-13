@@ -11,10 +11,10 @@ import SwiftUI
 struct TeamsData: Identifiable {
     let id = UUID()
     let team: String
-    var motto: String
-    var description: String
-    var numberOfParticipants: Int
-    var imageName: String
+    let motto: String
+    let description: String
+    let numberOfParticipants: Int
+    let imageName: String
 }
 
 let Tdata = [

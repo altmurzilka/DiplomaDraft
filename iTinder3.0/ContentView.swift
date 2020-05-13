@@ -26,7 +26,7 @@ struct ContentView: View {
                         Text("Проекты")
                     }
             }
-            TeamsView()
+            TeamsView(showTeam: Tdata)
                 .tabItem {
                     VStack {
                         Image(systemName: "person.3")
