@@ -45,8 +45,6 @@ struct EventCell: View {
                 Spacer()
         
                     Text(event.tag).padding(.top, 70)
-       
-            
         }
     }
 }

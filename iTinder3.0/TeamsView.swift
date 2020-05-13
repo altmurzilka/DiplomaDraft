@@ -53,9 +53,7 @@ struct TeamsView: View {
                         HStack {
                             Image(systemName: "person")
                             Text("5")
-                        }
-                        
-                        
+                        } 
                     }
                     Spacer()
                     

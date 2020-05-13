@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct UserView: View {
+    var singleUser : [UserData] = []
     var body: some View {
         VStack {
             Image("flame")

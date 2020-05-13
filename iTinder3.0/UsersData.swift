@@ -14,7 +14,7 @@ struct UserData: Identifiable {
     var password: String
 }
 
-let Udata = [
+var Udata = [
     UserData(username: "Test", password: "ABCabc123*"),
     UserData(username: "minecraft", password: "ABCabc123*"),
     UserData(username: "Bob Kelso", password: "ABCabc123*"),

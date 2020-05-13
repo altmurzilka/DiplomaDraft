@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+
 struct EventsData: Identifiable {
     let id = UUID()
     let event: String
