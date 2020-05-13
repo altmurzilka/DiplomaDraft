@@ -10,14 +10,11 @@ import SwiftUI
 
 struct RegistrationView: View {
     
-    var loginPass: [String : String ] = [
-        "Test" : "Test",
-        "Dana" : "Banana",
-        "Teo" : "Hurts"
-    ]
-    
     @State private var email = ""
     @State private var password = ""
+    // Design+Code tutorial
+    @State private var showAlert = false
+    @State private var alertMessage = "smthng went wrong"
     
     var body: some View {
         VStack {
@@ -38,7 +35,7 @@ struct RegistrationView: View {
                     Button(action: {
                         // action
                     }) {
-                        Text("Forgot password?")
+                        Text("Forgot password?").font(.subheadline)
                     }
                 }.padding()
             }.font(.headline)
@@ -46,15 +43,23 @@ struct RegistrationView: View {
             
             HStack(alignment: .center) {
                 Button(action: {
-                    print("\(self.email) and \(self.password)")
-                }) {
-                    Text("Войти")
-                }
-                Spacer()
-                Button(action: {
                     // action
                 }) {
                     Text("Зарегистрироваться")
+                }
+                Spacer()
+                Button(action: {
+                    self.showAlert = true
+                    print("\(self.email) and \(self.password)")
+                }) {
+                    Text("Войти").foregroundColor(.black)
+                }.padding(12)
+                    .padding(.horizontal, 30)
+                    .background(Color(.green))
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .shadow(color: Color(.green).opacity(0.3), radius: 20, x: 0, y: 20)
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("Error"), message: Text(self.alertMessage), dismissButton: .default(Text("OK")))
                 }
             }.padding()
         }
