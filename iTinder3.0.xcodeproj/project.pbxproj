@@ -12,6 +12,7 @@
 		F126E36D244E0F3700826FAC /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126E36C244E0F3700826FAC /* EventsView.swift */; };
 		F136B339244F3D3F0079A914 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F136B338244F3D3F0079A914 /* TeamsView.swift */; };
 		F1378E3B245F18C60005E2EC /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1378E3A245F18C60005E2EC /* EventDetail.swift */; };
+		F18CA3F3246BF8C3003F6FA6 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CA3F2246BF8C3003F6FA6 /* UserView.swift */; };
 		F19E021F244D819000410849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E021E244D819000410849 /* AppDelegate.swift */; };
 		F19E0221244D819000410849 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E0220244D819000410849 /* SceneDelegate.swift */; };
 		F19E0223244D819000410849 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E0222244D819000410849 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 		F19E0228244D819500410849 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19E0227244D819500410849 /* Preview Assets.xcassets */; };
 		F19E022B244D819500410849 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19E0229244D819500410849 /* LaunchScreen.storyboard */; };
 		F1B249F524589700007FFEB6 /* EventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B249F424589700007FFEB6 /* EventsData.swift */; };
+		F1C8DA1A24680E1500325315 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C8DA1924680E1500325315 /* UsersData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,7 @@
 		F126E36C244E0F3700826FAC /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		F136B338244F3D3F0079A914 /* TeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
 		F1378E3A245F18C60005E2EC /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		F18CA3F2246BF8C3003F6FA6 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		F19E021B244D819000410849 /* iTinder3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTinder3.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19E021E244D819000410849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F19E0220244D819000410849 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		F19E022A244D819500410849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F19E022C244D819500410849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B249F424589700007FFEB6 /* EventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsData.swift; sourceTree = "<group>"; };
+		F1C8DA1924680E1500325315 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +78,9 @@
 				F126E36C244E0F3700826FAC /* EventsView.swift */,
 				F1B249F424589700007FFEB6 /* EventsData.swift */,
 				F1378E3A245F18C60005E2EC /* EventDetail.swift */,
+				F1C8DA1924680E1500325315 /* UsersData.swift */,
 				F126E36A244E04DA00826FAC /* RegistrationView.swift */,
+				F18CA3F2246BF8C3003F6FA6 /* UserView.swift */,
 				F136B338244F3D3F0079A914 /* TeamsView.swift */,
 				F126E364244DB22600826FAC /* ProjectsView.swift */,
 				F19E0224244D819500410849 /* Assets.xcassets */,
@@ -164,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F18CA3F3246BF8C3003F6FA6 /* UserView.swift in Sources */,
 				F126E365244DB22600826FAC /* ProjectsView.swift in Sources */,
 				F136B339244F3D3F0079A914 /* TeamsView.swift in Sources */,
 				F1378E3B245F18C60005E2EC /* EventDetail.swift in Sources */,
@@ -172,6 +179,7 @@
 				F19E0221244D819000410849 /* SceneDelegate.swift in Sources */,
 				F19E0223244D819000410849 /* ContentView.swift in Sources */,
 				F126E36B244E04DA00826FAC /* RegistrationView.swift in Sources */,
+				F1C8DA1A24680E1500325315 /* UsersData.swift in Sources */,
 				F126E36D244E0F3700826FAC /* EventsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
