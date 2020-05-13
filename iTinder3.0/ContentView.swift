@@ -19,7 +19,7 @@ struct ContentView: View {
                         Text("События")
                     }
             }
-            ProjectsView()
+            ProjectsView(showProject: Pdata)
                 .tabItem {
                     VStack {
                         Image(systemName: "square.and.pencil")
