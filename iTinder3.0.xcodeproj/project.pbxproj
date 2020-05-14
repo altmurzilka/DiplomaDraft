@@ -12,6 +12,7 @@
 		F126E36D244E0F3700826FAC /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126E36C244E0F3700826FAC /* EventsView.swift */; };
 		F136B339244F3D3F0079A914 /* TeamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F136B338244F3D3F0079A914 /* TeamsView.swift */; };
 		F1378E3B245F18C60005E2EC /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1378E3A245F18C60005E2EC /* EventDetail.swift */; };
+		F1411B90246DCDAD009A67AC /* AddNewTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1411B8F246DCDAD009A67AC /* AddNewTeam.swift */; };
 		F18CA3F3246BF8C3003F6FA6 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CA3F2246BF8C3003F6FA6 /* UserView.swift */; };
 		F18CA3F7246C180D003F6FA6 /* TeamsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CA3F6246C180D003F6FA6 /* TeamsData.swift */; };
 		F18CA3F9246C26BA003F6FA6 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CA3F8246C26BA003F6FA6 /* TeamDetail.swift */; };
@@ -33,6 +34,7 @@
 		F126E36C244E0F3700826FAC /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		F136B338244F3D3F0079A914 /* TeamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsView.swift; sourceTree = "<group>"; };
 		F1378E3A245F18C60005E2EC /* EventDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		F1411B8F246DCDAD009A67AC /* AddNewTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTeam.swift; sourceTree = "<group>"; };
 		F18CA3F2246BF8C3003F6FA6 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		F18CA3F6246C180D003F6FA6 /* TeamsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsData.swift; sourceTree = "<group>"; };
 		F18CA3F8246C26BA003F6FA6 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				F18CA3F2246BF8C3003F6FA6 /* UserView.swift */,
 				F18CA3F6246C180D003F6FA6 /* TeamsData.swift */,
 				F136B338244F3D3F0079A914 /* TeamsView.swift */,
+				F1411B8F246DCDAD009A67AC /* AddNewTeam.swift */,
 				F18CA3F8246C26BA003F6FA6 /* TeamDetail.swift */,
 				F126E364244DB22600826FAC /* ProjectsView.swift */,
 				F18CA3FA246C3B80003F6FA6 /* ProjectsData.swift */,
@@ -209,6 +212,7 @@
 				F18CA3F9246C26BA003F6FA6 /* TeamDetail.swift in Sources */,
 				F19E0223244D819000410849 /* ContentView.swift in Sources */,
 				F126E36B244E04DA00826FAC /* RegistrationView.swift in Sources */,
+				F1411B90246DCDAD009A67AC /* AddNewTeam.swift in Sources */,
 				F18CA3FB246C3B80003F6FA6 /* ProjectsData.swift in Sources */,
 				F1C8DA1A24680E1500325315 /* UsersData.swift in Sources */,
 				F126E36D244E0F3700826FAC /* EventsView.swift in Sources */,
