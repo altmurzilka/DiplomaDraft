@@ -40,7 +40,7 @@
 		F18CA3F8246C26BA003F6FA6 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
 		F18CA3FA246C3B80003F6FA6 /* ProjectsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsData.swift; sourceTree = "<group>"; };
 		F18CA3FC246C40C9003F6FA6 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
-		F19E021B244D819000410849 /* iTinder3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTinder3.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19E021B244D819000410849 /* iTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19E021E244D819000410849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F19E0220244D819000410849 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F19E0222244D819000410849 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		F19E021C244D819000410849 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F19E021B244D819000410849 /* iTinder3.0.app */,
+				F19E021B244D819000410849 /* iTinder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,7 +147,7 @@
 			);
 			name = iTinder3.0;
 			productName = iTinder3.0;
-			productReference = F19E021B244D819000410849 /* iTinder3.0.app */;
+			productReference = F19E021B244D819000410849 /* iTinder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -362,7 +362,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myrzaboi.iTinder3-0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iTinder;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,7 +382,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myrzaboi.iTinder3-0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iTinder;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
