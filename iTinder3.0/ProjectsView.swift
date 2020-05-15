@@ -16,7 +16,7 @@ struct ProjectsView: View {
         NavigationView {
             List(showProject) { project in
                 ProjectCell(project: project)
-            }.navigationBarTitle("Проекты", displayMode: .inline)
+            }.navigationBarTitle("Проекты")
         }
     }
 }

@@ -16,7 +16,7 @@ struct TeamsView: View {
         NavigationView {
             List(showTeam) { team in
                 TeamCell(team: team)
-            }.navigationBarTitle("Команды", displayMode: .inline)
+            }.navigationBarTitle("Команды")
         }
     }
 }

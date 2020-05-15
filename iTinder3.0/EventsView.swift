@@ -16,7 +16,7 @@ struct EventsView: View {
         NavigationView {
             List(showEvent) { event in
                 EventCell(event: event)
-            }.navigationBarTitle("События", displayMode: .inline)
+            }.navigationBarTitle("События")
         }
     }
 }
