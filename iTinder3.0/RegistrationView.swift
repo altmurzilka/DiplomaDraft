@@ -9,60 +9,8 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    
-    @State private var email = ""
-    @State private var password = ""
-    // Design+Code tutorial
-    @State private var showAlert = false
-    @State private var alertMessage = "smthng went wrong"
-    
     var body: some View {
-        VStack {
-            VStack(alignment: .center){
-                Text("iTinder")
-                    .font(.largeTitle).foregroundColor(Color.green)
-                Image(systemName: "person.circle")
-                    .font(.system(size: 100.0, weight: .light))
-                    .foregroundColor(.green)
-                    .padding(.bottom, 25)
-                VStack(alignment: .leading) {
-                    TextField("Логин", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .shadow(radius: 2)
-                    SecureField("Пароль", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .shadow(radius: 2)
-                    Button(action: {
-                        // action
-                    }) {
-                        Text("Forgot password?").font(.subheadline)
-                    }
-                }.padding()
-            }.font(.headline)
-            .padding(.top, 5)
-            
-            HStack(alignment: .center) {
-                Button(action: {
-                    // action
-                }) {
-                    Text("Зарегистрироваться")
-                }
-                Spacer()
-                Button(action: {
-                    self.showAlert = true
-                    print("\(self.email) and \(self.password)")
-                }) {
-                    Text("Войти").foregroundColor(.black)
-                }.padding(12)
-                    .padding(.horizontal, 30)
-                    .background(Color(.green))
-                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                    .shadow(color: Color(.green).opacity(0.3), radius: 20, x: 0, y: 20)
-                    .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Error"), message: Text(self.alertMessage), dismissButton: .default(Text("OK")))
-                }
-            }.padding()
-        }
+        Home()
     }
 }
 
@@ -70,5 +18,103 @@ struct RegistrationView: View {
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         RegistrationView()
+    }
+}
+
+
+struct Home: View {
+    var body: some View {
+        VStack {
+            Login()
+        }
+    }
+}
+
+struct Login: View {
+    
+    @State private var color = Color.black.opacity(0.7)
+    @State private var email = ""
+    @State private var pass = ""
+    @State private var visible = false
+    
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            GeometryReader {_ in
+                VStack {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .foregroundColor(Color("Color"))
+                    Text("Login into your account")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(self.color)
+                        .padding(.top, 35)
+                    
+                    TextField("Email", text: self.$email)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
+                        .padding(.top, 25)
+                    
+                    HStack(spacing: 15) {
+                        VStack {
+                            if self.visible {
+                                TextField("Password", text: self.$pass)
+                            } else{
+                                SecureField("Password", text: self.$pass)
+                            }
+                        }
+                        
+                        Button(action: {
+                            
+                            self.visible.toggle()
+                            
+                        }) {
+                            Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
+                                .foregroundColor(self.color)
+                        }
+                    }
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
+                    .padding(.top, 25)
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            
+                        }) {
+                            Text("Forfot password")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("Color"))
+                        }
+                    }
+                    .padding(.top, 20)
+                    
+                    Button( action: {
+                        
+                    }) {
+                        Text("Log In")
+                            .foregroundColor(.white)
+                            .padding(.vertical)
+                            .frame(width: UIScreen.main.bounds.width - 50)
+                    }
+                    .background(Color("Color"))
+                    .cornerRadius(10)
+                    .padding(.top, 25)
+                }
+                .padding(.horizontal, 25)
+            }
+            
+            Button(action: {
+                
+            }) {
+                Text("Register")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("Color"))
+            }
+            .padding()
+        }
     }
 }
