@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>529247179351-d5jn8dbupq00p3c5lhaeqhfs12qirujt.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.529247179351-d5jn8dbupq00p3c5lhaeqhfs12qirujt</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCK9dJNmBQiebp1iCYXrWnFenkR2jLVspk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>529247179351</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.myrzaboi.iTinder3-0</string>
+	<key>PROJECT_ID</key>
+	<string>itinder-d0d59</string>
+	<key>STORAGE_BUCKET</key>
+	<string>itinder-d0d59.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:529247179351:ios:f97362419afd34374d0912</string>
+	<key>DATABASE_URL</key>
+	<string>https://itinder-d0d59.firebaseio.com</string>
+</dict>
+</plist>

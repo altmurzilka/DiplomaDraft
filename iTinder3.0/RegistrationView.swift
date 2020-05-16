@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct RegistrationView: View {
     var body: some View {
@@ -25,19 +26,67 @@ struct RegistrationView_Previews: PreviewProvider {
 struct Home: View {
     
     @State private var show = false
+    @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
     var body: some View {
         NavigationView {
-            ZStack {
-                NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
-                    Text("")
+            VStack {
+                if self.status{
+                    Homescreen()
                 }
-                .hidden()
-                Login(show: self.$show)
+                else{
+                    ZStack{
+                        
+                        NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
+                            
+                            Text("")
+                        }
+                        .hidden()
+                        
+                        Login(show: self.$show)
+                    }
+                }
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            .onAppear{
+                NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) {
+                    (_) in
+                    self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+                }
+            }
+        }
+    }
+}
+
+struct Homescreen : View {
+    
+    var body: some View{
+        
+        VStack{
+            
+            Text("Logged successfully")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.black.opacity(0.7))
+            
+            Button(action: {
+                
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                
+            }) {
+                
+                Text("Log out")
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 50)
+            }
+            .background(Color("Color"))
+            .cornerRadius(10)
+            .padding(.top, 25)
         }
     }
 }
@@ -69,6 +118,7 @@ struct Login: View {
                             .padding(.top, 35)
                         
                         TextField("Email", text: self.$email)
+                            .autocapitalization(.none)
                             .padding()
                             .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
                             .padding(.top, 25)
@@ -77,8 +127,10 @@ struct Login: View {
                             VStack {
                                 if self.visible {
                                     TextField("Password", text: self.$pass)
+                                    .autocapitalization(.none)
                                 } else{
                                     SecureField("Password", text: self.$pass)
+                                    .autocapitalization(.none)
                                 }
                             }
                             
@@ -100,6 +152,7 @@ struct Login: View {
                             
                             Button(action: {
                                 
+                                self.reset()
                                 
                             }) {
                                 Text("Forgot password")
@@ -149,11 +202,46 @@ struct Login: View {
         
         if self.email != "" && self.pass != ""{
             
-            
+            Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
+                
+                if err != nil{
+                    
+                    self.error = err!.localizedDescription
+                    self.alert.toggle()
+                    return
+                }
+                print("success")
+                UserDefaults.standard.set(true, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+            }
         }
         else{
             
             self.error = "Please fill all the contents properly"
+            self.alert.toggle()
+        }
+    }
+    
+    func reset(){
+        
+        if self.email != ""{
+            
+            Auth.auth().sendPasswordReset(withEmail: self.email) { (err) in
+                
+                if err != nil{
+                    
+                    self.error = err!.localizedDescription
+                    self.alert.toggle()
+                    return
+                }
+                
+                self.error = "RESET"
+                self.alert.toggle()
+            }
+        }
+        else{
+            
+            self.error = "Email Id is empty"
             self.alert.toggle()
         }
     }
@@ -168,98 +256,147 @@ struct SignUp: View {
     @State private var visible = false
     @State private var revisible = false
     @Binding var show : Bool
+    @State var alert = false
+    @State var error = ""
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            GeometryReader {_ in
-                VStack {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .foregroundColor(Color("Color"))
-                    Text("Login into your account")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(self.color)
-                        .padding(.top, 35)
-                    
-                    TextField("Email", text: self.$email)
+        ZStack {
+            ZStack(alignment: .topLeading) {
+                GeometryReader {_ in
+                    VStack {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 200)
+                            .foregroundColor(Color("Color"))
+                        Text("Login into your account")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(self.color)
+                            .padding(.top, 35)
+                        
+                        TextField("Email", text: self.$email)
+                            .autocapitalization(.none)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
+                            .padding(.top, 25)
+                        
+                        HStack(spacing: 15) {
+                            VStack {
+                                if self.visible {
+                                    TextField("Password", text: self.$pass)
+                                    .autocapitalization(.none)
+                                } else{
+                                    SecureField("Password", text: self.$pass)
+                                    .autocapitalization(.none)
+                                }
+                            }
+                            
+                            Button(action: {
+                                
+                                self.visible.toggle()
+                                
+                            }) {
+                                Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
+                                    .foregroundColor(self.color)
+                            }
+                        }
                         .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
                         .padding(.top, 25)
-                    
-                    HStack(spacing: 15) {
-                        VStack {
-                            if self.visible {
-                                TextField("Password", text: self.$pass)
-                            } else{
-                                SecureField("Password", text: self.$pass)
+                        
+                        HStack(spacing: 15) {
+                            VStack {
+                                if self.revisible {
+                                    TextField("Re-enter", text: self.$repass)
+                                    .autocapitalization(.none)
+                                } else{
+                                    SecureField("Re-enter", text: self.$repass)
+                                    .autocapitalization(.none)
+                                }
+                            }
+                            
+                            Button(action: {
+                                
+                                self.revisible.toggle()
+                                
+                            }) {
+                                Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
+                                    .foregroundColor(self.color)
                             }
                         }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
+                        .padding(.top, 25)
                         
-                        Button(action: {
+                        Button( action: {
                             
-                            self.visible.toggle()
+                            self.register()
                             
                         }) {
-                            Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                .foregroundColor(self.color)
+                            Text("Register")
+                                .foregroundColor(.white)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 50)
                         }
+                        .background(Color("Color"))
+                        .cornerRadius(10)
+                        .padding(.top, 25)
                     }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
-                    .padding(.top, 25)
-                    
-                    HStack(spacing: 15) {
-                        VStack {
-                            if self.revisible {
-                                TextField("Re-enter", text: self.$repass)
-                            } else{
-                                SecureField("Re-enter", text: self.$repass)
-                            }
-                        }
-                        
-                        Button(action: {
-                            
-                            self.revisible.toggle()
-                            
-                        }) {
-                            Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
-                                .foregroundColor(self.color)
-                        }
-                    }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
-                    .padding(.top, 25)
-                    
-                    Button( action: {
-                        
-                    }) {
-                        Text("Register")
-                            .foregroundColor(.white)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 50)
-                    }
-                    .background(Color("Color"))
-                    .cornerRadius(10)
-                    .padding(.top, 25)
+                    .padding(.horizontal, 25)
                 }
-                .padding(.horizontal, 25)
+                
+                Button(action: {
+                    
+                    self.show.toggle()
+                    
+                }) {
+                    Image(systemName: "chevron.left")
+                        .font(.title)
+                        .foregroundColor(Color("Color"))
+                }
+                .padding()
             }
             
-            Button(action: {
-                
-                self.show.toggle()
-                
-            }) {
-                Image(systemName: "chevron.left")
-                    .font(.title)
-                    .foregroundColor(Color("Color"))
+            if self.alert{
+                ErrorView(alert: self.$alert, error: self.$error)
             }
-            .padding()
         }
         .navigationBarBackButtonHidden(true)
+    }
+    
+    func register(){
+        
+        if self.email != ""{
+            
+            if self.pass == self.repass{
+                
+                Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
+                    
+                    if err != nil{
+                        
+                        self.error = err!.localizedDescription
+                        self.alert.toggle()
+                        return
+                    }
+                    
+                    print("success")
+                    
+                    UserDefaults.standard.set(true, forKey: "status")
+                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                }
+            }
+            else{
+                
+                self.error = "Password mismatch"
+                self.alert.toggle()
+            }
+        }
+        else{
+            
+            self.error = "Please fill all the contents properly"
+            self.alert.toggle()
+        }
     }
 }
 
@@ -276,7 +413,7 @@ struct ErrorView: View {
             VStack{
                 
                 HStack {
-                    Text("Error")
+                    Text(self.error == "RESET" ? "Message" : "Error")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(self.color)
@@ -285,7 +422,7 @@ struct ErrorView: View {
                 }
                 .padding(.horizontal, 25)
                 
-                Text(self.error)
+                Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
                     .foregroundColor(self.color)
                     .padding(.top)
                     .padding(.horizontal, 25)
@@ -295,7 +432,7 @@ struct ErrorView: View {
                     self.alert.toggle()
                     
                 }) {
-                    Text("Cancel")
+                    Text(self.error == "RESET" ? "Ok" : "Cancel")
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 120)
