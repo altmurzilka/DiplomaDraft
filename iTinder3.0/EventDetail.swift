@@ -13,6 +13,7 @@ struct EventDetail: View {
     @State private var showingAlert = false
     
     var event: String
+    var shortDescription: String
     var description: String
     var tag: String
     var imageName: String
@@ -20,8 +21,9 @@ struct EventDetail: View {
     var body: some View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
-                
                 Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
             }
             Text(description).padding()
             
@@ -30,18 +32,18 @@ struct EventDetail: View {
             }) {
                 Text("Хочу сюда!")
             }.font(.headline)
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Стоп"), message: Text("Сначала регистрация"), dismissButton: .default(Text("ясн")))
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Стоп"), message: Text("Сначала регистрация"), dismissButton: .default(Text("ясн")))
             }
             
             Spacer()
-            }.padding()
-        .navigationBarTitle(Text(event), displayMode: .inline)
+        }.padding()
+            .navigationBarTitle(Text(event), displayMode: .inline)
     }
 }
 
 struct EventDetail_Previews: PreviewProvider {
     static var previews: some View {
-        EventDetail(event: "Hack Day", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et faucibus lectus. Phasellus dapibus nunc a arcu feugiat, ut euismod enim lobortis. Integer sed odio felis.", tag: "hackathon", imageName: "hackday")
+        EventDetail(event: "Hack Day", shortDescription: "", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et faucibus lectus. Phasellus dapibus nunc a arcu feugiat, ut euismod enim lobortis. Integer sed odio felis.", tag: "hackathon", imageName: "swiftui-button")
     }
 }

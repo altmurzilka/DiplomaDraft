@@ -31,21 +31,34 @@ struct EventCell: View {
     let event: EventsData
     var body: some View {
         return NavigationLink(
-        destination: EventDetail(event: event.event, description: event.description, tag: event.tag, imageName: event.imageName)) {
-            Image(event.imageName)
-                .resizable()
-                .frame(width: 90.0, height: 90.0)
-      
-                VStack(alignment: .leading) {
-                    Text(event.event)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .padding(.bottom, 70)
-                }
-                Spacer()
-        
-                    Text(event.tag).padding(.top, 70)
+        destination: EventDetail(event: event.event, shortDescription: event.shortDescription, description: event.description, tag: event.tag, imageName: event.imageName)) {
+            VStack {
+                Image(event.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(event.tag.uppercased())
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(event.event)
+                            .font(.title)
+                            .fontWeight(.black)
+                            .foregroundColor(.primary)
+                            .lineLimit(3)
+//                        Text(event.tag.uppercased())
+//                            .font(.subheadline)
+//                            .foregroundColor(.secondary)
+                    }
+                    .layoutPriority(100)
+                    Spacer()
+                }.padding()
+            }
         }
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+               .stroke(Color(.sRGB, red: 103/255, green: 192/255, blue: 174/255, opacity: 0.8), lineWidth: 1))
     }
 }
 

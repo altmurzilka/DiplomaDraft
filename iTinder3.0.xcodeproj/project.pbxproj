@@ -130,7 +130,6 @@
 				F19E0220244D819000410849 /* SceneDelegate.swift */,
 				F19E0222244D819000410849 /* ContentView.swift */,
 				F1B249F424589700007FFEB6 /* EventsData.swift */,
-				F1FDD62D24705A2F00056993 /* GoogleService-Info.plist */,
 				F126E36C244E0F3700826FAC /* EventsView.swift */,
 				F1378E3A245F18C60005E2EC /* EventDetail.swift */,
 				F1C8DA1924680E1500325315 /* UsersData.swift */,
@@ -146,6 +145,7 @@
 				F18CA3FC246C40C9003F6FA6 /* ProjectDetail.swift */,
 				F19E0224244D819500410849 /* Assets.xcassets */,
 				F19E0229244D819500410849 /* LaunchScreen.storyboard */,
+				F1FDD62D24705A2F00056993 /* GoogleService-Info.plist */,
 				F19E022C244D819500410849 /* Info.plist */,
 				F19E0226244D819500410849 /* Preview Content */,
 			);
