@@ -10,6 +10,10 @@ import SwiftUI
 
 struct ContentView: View {
     
+    //    init() {
+    //        UITabBar.appearance().barTintColor = UIColor(named: "Color-2")
+    //    }
+    
     var body: some View {
         TabView {
             EventsView(showEvent: Edata)
@@ -40,7 +44,8 @@ struct ContentView: View {
                         Text("Профиль")
                     }
             }
-        }
+        }.font(.headline)
+            .edgesIgnoringSafeArea(.top)
     }
 }
 
@@ -49,3 +54,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
