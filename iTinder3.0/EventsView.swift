@@ -54,7 +54,7 @@ struct EventCell: View {
                     Spacer()
                 }.padding()
             }
-        }
+            }.padding(.trailing, -32.0)
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
