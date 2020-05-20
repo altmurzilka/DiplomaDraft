@@ -1,2 +1,3 @@
 # DiplomaDraft
-# need to add commands and registration screens
+# hardcode reg instead of firebase reg 
+hint: Codable, UserDefaults, ObservableObject
