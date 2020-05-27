@@ -66,7 +66,7 @@ struct Homescreen : View {
         
         VStack{
             
-            Text("Logged successfully")
+            Text("Вход произведен!")
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(Color.black.opacity(0.7))
@@ -76,7 +76,6 @@ struct Homescreen : View {
                 try! Auth.auth().signOut()
                 UserDefaults.standard.set(false, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                
             }) {
                 
                 Text("Log out")
@@ -111,7 +110,7 @@ struct Login: View {
                             .scaledToFit()
                             .frame(width: 200, height: 200)
                             .foregroundColor(Color("Color"))
-                        Text("Login into your account")
+                        Text("Войти в учетную запись")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
@@ -126,10 +125,10 @@ struct Login: View {
                         HStack(spacing: 15) {
                             VStack {
                                 if self.visible {
-                                    TextField("Password", text: self.$pass)
+                                    TextField("Пароль", text: self.$pass)
                                     .autocapitalization(.none)
                                 } else{
-                                    SecureField("Password", text: self.$pass)
+                                    SecureField("Пароль", text: self.$pass)
                                     .autocapitalization(.none)
                                 }
                             }
@@ -148,6 +147,16 @@ struct Login: View {
                         .padding(.top, 25)
                         
                         HStack {
+                            Button(action: {
+                                
+                                self.show.toggle()
+                                
+                            }) {
+                                Text("Регистрация")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("Color"))
+                            }
+                            
                             Spacer()
                             
                             Button(action: {
@@ -155,7 +164,7 @@ struct Login: View {
                                 self.reset()
                                 
                             }) {
-                                Text("Forgot password")
+                                Text("Не помню пароль")
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("Color"))
                             }
@@ -167,7 +176,7 @@ struct Login: View {
                             self.verify()
                             
                         }) {
-                            Text("Log In")
+                            Text("Войти")
                                 .foregroundColor(.white)
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
@@ -178,17 +187,6 @@ struct Login: View {
                     }
                     .padding(.horizontal, 25)
                 }
-                
-                Button(action: {
-                    
-                    self.show.toggle()
-                    
-                }) {
-                    Text("Register")
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("Color"))
-                }
-                .padding()
             }
             
             if self.alert{
@@ -217,7 +215,7 @@ struct Login: View {
         }
         else{
             
-            self.error = "Please fill all the contents properly"
+            self.error = "Пожалуйста, заполните все поля"
             self.alert.toggle()
         }
     }
@@ -269,7 +267,7 @@ struct SignUp: View {
                             .scaledToFit()
                             .frame(width: 200, height: 200)
                             .foregroundColor(Color("Color"))
-                        Text("Login into your account")
+                        Text("Войти в учетную запись")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
@@ -284,10 +282,10 @@ struct SignUp: View {
                         HStack(spacing: 15) {
                             VStack {
                                 if self.visible {
-                                    TextField("Password", text: self.$pass)
+                                    TextField("Пароль", text: self.$pass)
                                     .autocapitalization(.none)
                                 } else{
-                                    SecureField("Password", text: self.$pass)
+                                    SecureField("Пароль", text: self.$pass)
                                     .autocapitalization(.none)
                                 }
                             }
@@ -308,10 +306,10 @@ struct SignUp: View {
                         HStack(spacing: 15) {
                             VStack {
                                 if self.revisible {
-                                    TextField("Re-enter", text: self.$repass)
+                                    TextField("Повторите пароль", text: self.$repass)
                                     .autocapitalization(.none)
                                 } else{
-                                    SecureField("Re-enter", text: self.$repass)
+                                    SecureField("Повторите пароль", text: self.$repass)
                                     .autocapitalization(.none)
                                 }
                             }
@@ -334,7 +332,7 @@ struct SignUp: View {
                             self.register()
                             
                         }) {
-                            Text("Register")
+                            Text("Регистрация")
                                 .foregroundColor(.white)
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width - 50)
