@@ -100,6 +100,8 @@ struct Login: View {
     @State var alert = false
     @State var error = ""
     
+    @State var isUserLogged = false
+    
     var body: some View {
         ZStack {
             ZStack(alignment: .topTrailing) {

@@ -10,42 +10,26 @@ import SwiftUI
 
 struct ContentView: View {
     
-    //    init() {
-    //        UITabBar.appearance().barTintColor = UIColor(named: "Color-2")
-    //    }
+    @State var index = 0
     
     var body: some View {
-        TabView {
-            EventsView(showEvent: Edata)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "list.bullet")
-                        Text("События")
-                    }
+        VStack(spacing: 0) {
+            ZStack{
+                if self.index == 0{
+                    EventsView(showEvent: Edata)
+                }
+                else if self.index == 1{
+                    ProjectsView(showProject: Pdata)
+                }
+                else if self.index == 2{
+                    TeamsView(showTeam: Tdata)
+                }
+                else{
+                    RegistrationView()
+                }
             }
-            ProjectsView(showProject: Pdata)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "square.and.pencil")
-                        Text("Проекты")
-                    }
-            }
-            TeamsView(showTeam: Tdata)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "person.3")
-                        Text("Команды")
-                    }
-            }
-            RegistrationView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "person")
-                        Text("Профиль")
-                    }
-            }
-        }.font(.headline)
-            .edgesIgnoringSafeArea(.top)
+            CircleTab(index: self.$index)
+        }//.edgesIgnoringSafeArea(.top)
     }
 }
 
