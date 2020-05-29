@@ -63,36 +63,36 @@ struct Home: View {
 struct Homescreen : View {
     
     var body: some View{
-        
-        VStack{
-            
-            Text("Вход произведен!")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black.opacity(0.7))
-            
-            Button(action: {
+            VStack{
                 
-                try! Auth.auth().signOut()
-                UserDefaults.standard.set(false, forKey: "status")
-                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-            }) {
+                Text("Вход произведен!")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.black.opacity(0.7))
                 
-                Text("Log out")
-                    .foregroundColor(.white)
-                    .padding(.vertical)
-                    .frame(width: UIScreen.main.bounds.width - 50)
+                UserView()
+                    //            Button(action: {
+                    
+                    //                try! Auth.auth().signOut()
+                    //                UserDefaults.standard.set(false, forKey: "status")
+                    //                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                    //                       }) {
+                    
+                    Text("OK")
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                    //     }
+                .background(Color("Color"))
+                .cornerRadius(10)
+                .padding(.top, 25)
             }
-            .background(Color("Color"))
-            .cornerRadius(10)
-            .padding(.top, 25)
-        }
     }
 }
 
 struct Login: View {
     
-    @State private var color = Color.black.opacity(0.7)
+    @State private var color = Color.black.opacity(0.5)
     @State private var email = ""
     @State private var pass = ""
     @State private var visible = false
@@ -107,7 +107,7 @@ struct Login: View {
             ZStack(alignment: .topTrailing) {
                 GeometryReader {_ in
                     VStack {
-                        Image(systemName: "person.circle.fill")
+                        Image("itinder")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200)
@@ -128,10 +128,10 @@ struct Login: View {
                             VStack {
                                 if self.visible {
                                     TextField("Пароль", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 } else{
                                     SecureField("Пароль", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                             }
                             
@@ -285,10 +285,10 @@ struct SignUp: View {
                             VStack {
                                 if self.visible {
                                     TextField("Пароль", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 } else{
                                     SecureField("Пароль", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                             }
                             
@@ -309,10 +309,10 @@ struct SignUp: View {
                             VStack {
                                 if self.revisible {
                                     TextField("Повторите пароль", text: self.$repass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 } else{
                                     SecureField("Повторите пароль", text: self.$repass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                             }
                             

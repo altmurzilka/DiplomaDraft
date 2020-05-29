@@ -7,15 +7,25 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct UserView: View {
-    var singleUser : [UserData] = []
+    //@Binding var status : Bool
     var body: some View {
         VStack {
             Image("flame")
             Text("Hello!")
+            Button(action: {
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+            }) {
+                Text("OK")
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 50)
+            }
         }
-        
     }
 }
 
