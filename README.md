@@ -1,3 +1,3 @@
-# DiplomaDraft
-# hardcode reg instead of firebase reg 
+# PPDraft
+# hardcode reg instead of firebase reg ! Failed 
 hint: Codable, UserDefaults, ObservableObject
