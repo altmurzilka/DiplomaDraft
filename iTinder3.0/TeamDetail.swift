@@ -9,7 +9,13 @@
 import SwiftUI
 
 struct TeamDetail: View {
+    
+    @ObservedObject private var user = User()
+    
     @State private var showingAlert = false
+    
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     var team: String
     var motto: String
@@ -31,17 +37,28 @@ struct TeamDetail: View {
             Text(description).padding()
             
             Button(action: {
+                self.buttonTapped()
                 self.showingAlert = true
             }) {
                 Text("Join!")
             }.font(.headline)
                 .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Стоп"), message: Text("Сначала регистрация"), dismissButton: .default(Text("ясн")))
+                    Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("ОК")))
             }
             
             Spacer()
         }.padding()
             .navigationBarTitle(Text(team), displayMode: .inline)
+    }
+    
+    func buttonTapped() {
+        if user.status == true {
+            alertTitle = "Успех!"
+            alertMessage = "Ваша заявка была отправлена!"
+        } else {
+            alertTitle = "Стоп!"
+            alertMessage = "Сначала регистрация!"
+        }
     }
 }
 

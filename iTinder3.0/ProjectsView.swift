@@ -28,6 +28,9 @@ struct ProjectsView_Previews: PreviewProvider {
 }
 
 struct ProjectCell: View {
+    
+    @State private var tapCount = UserDefaults.standard.integer(forKey: "Tap")
+    
     var project: ProjectsData
     var body: some View {
         return NavigationLink (
@@ -47,7 +50,7 @@ struct ProjectCell: View {
                 Divider()
                 VStack {
                     
-                    Text("\(project.numberOfLits)")
+                    Text("\(project.numberOfLits+tapCount)")
                         .font(.headline).foregroundColor(Color.pink)
                         .fontWeight(.black)
                     HStack{

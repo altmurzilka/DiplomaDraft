@@ -59,7 +59,6 @@ struct EventDetail: View {
             alertTitle = "Стоп!"
             alertMessage = "Сначала регистрация!"
         }
-        
     }
 }
 

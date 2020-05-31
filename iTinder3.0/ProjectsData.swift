@@ -17,10 +17,10 @@ struct ProjectsData: Identifiable {
 }
 
 let Pdata = [
-    ProjectsData(project: "DobroTeam", description: "Integer sed odio felis.", numberOfLits: 5, imageName: "flame"),
-    ProjectsData(project: "SomePRJCT", description: "Integer sed odio felis.", numberOfLits: 5, imageName: "flame"),
-    ProjectsData(project: "Robo", description: "Integer sed odio felis.", numberOfLits: 2, imageName: "flame"),
-    ProjectsData(project: "iTinder", description: "Integer sed odio felis.", numberOfLits: 4, imageName: "flame"),
-    ProjectsData(project: "SlimShady", description: "Integer sed odio felis.", numberOfLits: 7, imageName: "flame")
+    ProjectsData(project: "DobroTeam", description: "Integer sed odio felis.", numberOfLits: 23, imageName: "hackday"),
+    ProjectsData(project: "SomePRJCT", description: "Integer sed odio felis.", numberOfLits: 0, imageName: "flame"),
+    ProjectsData(project: "Robo", description: "Integer sed odio felis.", numberOfLits: 12, imageName: "hackday"),
+    ProjectsData(project: "iTinder", description: "Integer sed odio felis.", numberOfLits: 74, imageName: "itinder"),
+    ProjectsData(project: "SlimShady", description: "Integer sed odio felis.", numberOfLits: 6, imageName: "flame")
 ]
 

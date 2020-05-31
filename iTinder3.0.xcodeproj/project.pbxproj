@@ -96,13 +96,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F18CA3F5246BFCB2003F6FA6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F19E0212244D819000410849 = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +117,6 @@
 		F19E021D244D819000410849 /* iTinder3.0 */ = {
 			isa = PBXGroup;
 			children = (
-				F18CA3F5246BFCB2003F6FA6 /* View */,
 				F18CA3F4246BFC74003F6FA6 /* Model */,
 				F19E021E244D819000410849 /* AppDelegate.swift */,
 				F19E0220244D819000410849 /* SceneDelegate.swift */,

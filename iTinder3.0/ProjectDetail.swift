@@ -9,6 +9,12 @@
 import SwiftUI
 
 struct ProjectDetail: View {
+    
+    @ObservedObject private var user = User()
+    
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    
     @State private var userVote = 1
     
     @State private var tapCount = UserDefaults.standard.integer(forKey: "Tap")
@@ -26,25 +32,35 @@ struct ProjectDetail: View {
             ZStack(alignment: .bottomTrailing) {
                 
                 Image(imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             }
             Text(description).padding()
             
             Button(action: {
-                //self.showingAlert = true
-                self.tapCount += 1
-                //self.numberOfLits += 1
+                self.buttonTapped()
                 UserDefaults.standard.set(self.tapCount, forKey: "Tap")
-                //UserDefaults.standard.set(self.numberOfLits + self.userVote, forKey: "LitIt")
             }) {
                 Text("\(numberOfLits+tapCount) Lit It!")
             }.font(.headline)
                 .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Стоп"), message: Text("Сначала регистрация"), dismissButton: .default(Text("ясн")))
+                    Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
             
             Spacer()
         }.padding()
             .navigationBarTitle(Text(project), displayMode: .inline)
+    }
+    
+    func buttonTapped() {
+        if user.status == true {
+            self.showingAlert = false
+            self.tapCount += 1
+        } else {
+            self.showingAlert = true
+            alertTitle = "Стоп!"
+            alertMessage = "Сначала регистрация!"
+        }
     }
 }
 
