@@ -9,9 +9,12 @@
 import SwiftUI
 
 struct ProjectDetail: View {
+    @State private var userVote = 1
+    
+    @State private var tapCount = UserDefaults.standard.integer(forKey: "Tap")
     
     @State private var showingAlert = false
-    @State private var currentScore = 0
+   // @State private var currentScore = 0
     
     var project: String
     var description: String
@@ -27,12 +30,13 @@ struct ProjectDetail: View {
             Text(description).padding()
             
             Button(action: {
-                self.currentScore += 1 // вот тут баг
-                // пофикси
-                // нужно, чтобы апдейтилась переменная numberOfLits
-                self.showingAlert = true
+                //self.showingAlert = true
+                self.tapCount += 1
+                //self.numberOfLits += 1
+                UserDefaults.standard.set(self.tapCount, forKey: "Tap")
+                //UserDefaults.standard.set(self.numberOfLits + self.userVote, forKey: "LitIt")
             }) {
-                Text("Lit It!")
+                Text("\(numberOfLits+tapCount) Lit It!")
             }.font(.headline)
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Стоп"), message: Text("Сначала регистрация"), dismissButton: .default(Text("ясн")))
