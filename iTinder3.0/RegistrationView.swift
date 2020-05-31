@@ -8,6 +8,8 @@
 
 import SwiftUI
 import Firebase
+import Foundation
+import Combine
 
 struct RegistrationView: View {
     var body: some View {
@@ -63,46 +65,43 @@ struct Home: View {
 struct Homescreen : View {
     
     var body: some View{
-            VStack{
+        VStack{
+            
+            Text("Вход произведен!")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.black.opacity(0.7))
+            
+            //  UserView()
+            Button(action: {
                 
-                Text("Вход произведен!")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.black.opacity(0.7))
+                try! Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "status")
+                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+            }) {
                 
-              //  UserView()
-                                Button(action: {
-                    
-                                    try! Auth.auth().signOut()
-                                    UserDefaults.standard.set(false, forKey: "status")
-                                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                                           }) {
-                    
-                    Text("Выйти")
-                        .foregroundColor(.white)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 50)
-                    }
-                .background(Color("Color"))
-                .cornerRadius(10)
-                .padding(.top, 25)
+                Text("Выйти")
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 50)
             }
+            .background(Color("Color"))
+            .cornerRadius(10)
+            .padding(.top, 25)
+        }
     }
 }
-
-
 
 
 struct Login: View {
     
     @ObservedObject private var user = User()
+    
     @State private var color = Color.black.opacity(0.5)
     @State private var visible = false
     @Binding var show : Bool
     @State var alert = false
     @State var error = ""
-    
-    @State var isUserLogged = false
     
     var body: some View {
         ZStack {
@@ -213,6 +212,8 @@ struct Login: View {
                     return
                 }
                 print("success")
+                self.user.status.toggle()
+                print("val for user Log \(self.user.status)")
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
             }

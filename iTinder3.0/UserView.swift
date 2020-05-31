@@ -18,17 +18,6 @@ struct UserView: View {
                 .scaledToFit()
                 .frame(width: 200, height: 200)
             Text("Hello!")
-            Button(action: {
-                try! Auth.auth().signOut()
-                print("error")
-                UserDefaults.standard.set(false, forKey: "status")
-                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-            }) {
-                Text("OK")
-                    .foregroundColor(.white)
-                    .padding(.vertical)
-                    .frame(width: UIScreen.main.bounds.width - 50)
-            }
         }
     }
 }

@@ -10,7 +10,11 @@ import SwiftUI
 
 struct EventDetail: View {
     
+    @ObservedObject private var user = User()
+    
     @State private var showingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     var event: String
     var shortDescription: String
@@ -20,25 +24,42 @@ struct EventDetail: View {
     
     var body: some View {
         VStack {
-            ZStack(alignment: .bottomTrailing) {
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-            Text(description).padding()
             
-            Button(action: {
-                self.showingAlert = true
-            }) {
-                Text("Хочу сюда!")
-            }.font(.headline)
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Стоп"), message: Text("Сначала регистрация"), dismissButton: .default(Text("ясн")))
+            Image(imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            Divider().padding()
+            
+            VStack(alignment: .trailing, spacing: 20) {
+                
+                Text(description)
+                
+                Button(action: {
+                    self.buttonTapped()
+                    self.showingAlert = true
+                }) {
+                    Text("Хочу сюда!")
+                }.font(.headline)
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                }
             }
             
             Spacer()
+            
         }.padding()
             .navigationBarTitle(Text(event), displayMode: .inline)
+    }
+    
+    func buttonTapped() {
+        if user.status == true {
+            alertTitle = "Успех!"
+            alertMessage = "Вы зарегистрировались на данное мероприятие!"
+        } else {
+            alertTitle = "Стоп!"
+            alertMessage = "Сначала регистрация!"
+        }
+        
     }
 }
 
