@@ -10,6 +10,8 @@ import SwiftUI
 
 struct TeamsView: View {
     
+    @ObservedObject var team = Teams()
+    
     var showTeam : [TeamsData] = []
     
     var body: some View {

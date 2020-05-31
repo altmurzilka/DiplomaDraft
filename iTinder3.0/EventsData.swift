@@ -27,8 +27,3 @@ let Edata = [
     EventsData(event: "Hackday2028", shortDescription: "Some OLOLO in th e ololo heading ololo", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et faucibus lectus. Phasellus dapibus nunc a arcu feugiat, ut euismod enim lobortis. Integer sed odio felis.", tag: "hackathon", imageName: "swiftui-button")
 ]
 
-struct EventsData_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}

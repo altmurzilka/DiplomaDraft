@@ -17,7 +17,11 @@ struct TeamsData: Identifiable {
     let imageName: String
 }
 
-let Tdata = [
+class Teams: ObservableObject {
+    @Published var items = [TeamsData]()
+}
+
+var Tdata = [
     TeamsData(team: "DobroTeam", motto: "alea jacta est", description: "Integer sed odio felis.", numberOfParticipants: 5, imageName: "image-alignment"),
     TeamsData(team: "Revolv", motto: "alea jacta est", description: "Integer sed odio felis.", numberOfParticipants: 3, imageName: "image-alignment"),
     TeamsData(team: "8base", motto: "alea jacta est", description: "Integer sed odio felis.", numberOfParticipants: 3, imageName: "image-alignment"),

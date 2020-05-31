@@ -41,9 +41,10 @@ struct TeamDetail: View {
                 self.showingAlert = true
             }) {
                 Text("Join!")
-            }.font(.headline)
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("ОК")))
+            }
+            .font(.headline)
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("ОК")))
             }
             
             Spacer()

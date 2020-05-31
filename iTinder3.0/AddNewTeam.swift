@@ -11,25 +11,27 @@ import SwiftUI
 // оно начало крашиться на этой вьюшке почему-то
 
 struct AddNewTeam: View {
+    
     @State private var enablePrivateCommand = false
     @State private var teamName = ""
     @State private var motto = ""
-    @State private var participantsNumber = 1
+    @State private var participantsNumber = 2
+    @State private var showAlert = false
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Название команды").font(.headline)) {
-                    TextField("Log In", text: $teamName)
+                    TextField("", text: $teamName)
                     Toggle(isOn: $enablePrivateCommand) {
                         Text("Закрытая команда")
                     }
                 }
                 Section(header: Text("Девиз:").font(.headline)) {
-                    TextField("Log In", text: $motto)
+                    TextField("", text: $motto)
                 }
                 Section(header: Text("Количество участников").font(.headline)) {
-                    Stepper(value: $participantsNumber, in: 1...12) {
+                    Stepper(value: $participantsNumber, in: 2...8) {
                         Text("\(participantsNumber)")
                     }
                 }
