@@ -8,15 +8,7 @@
 
 import SwiftUI
 
-struct UserData: Identifiable {
-    let id = UUID()
-    let username: String
-    var password: String
+class User: ObservableObject {
+    @Published var email = ""
+    @Published var pass = ""
 }
-
-var Udata = [
-    UserData(username: "Test", password: "ABCabc123*"),
-    UserData(username: "minecraft", password: "ABCabc123*"),
-    UserData(username: "Bob Kelso", password: "ABCabc123*"),
-    UserData(username: "Tommy Murr", password: "ABCabc123*")
-]

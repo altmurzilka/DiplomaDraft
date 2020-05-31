@@ -29,7 +29,6 @@
 		F1B249F524589700007FFEB6 /* EventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B249F424589700007FFEB6 /* EventsData.swift */; };
 		F1C8DA1A24680E1500325315 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C8DA1924680E1500325315 /* UsersData.swift */; };
 		F1FDD62E24705A2F00056993 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1FDD62D24705A2F00056993 /* GoogleService-Info.plist */; };
-		F1FDD63224709C0000056993 /* TestLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDD63124709C0000056993 /* TestLoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +58,6 @@
 		F1B249F424589700007FFEB6 /* EventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsData.swift; sourceTree = "<group>"; };
 		F1C8DA1924680E1500325315 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
 		F1FDD62D24705A2F00056993 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F1FDD63124709C0000056993 /* TestLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +135,6 @@
 				F1378E3A245F18C60005E2EC /* EventDetail.swift */,
 				F1C8DA1924680E1500325315 /* UsersData.swift */,
 				F126E36A244E04DA00826FAC /* RegistrationView.swift */,
-				F1FDD63124709C0000056993 /* TestLoginView.swift */,
 				F18CA3F2246BF8C3003F6FA6 /* UserView.swift */,
 				F18CA3F6246C180D003F6FA6 /* TeamsData.swift */,
 				F136B338244F3D3F0079A914 /* TeamsView.swift */,
@@ -291,7 +288,6 @@
 				F18CA3F9246C26BA003F6FA6 /* TeamDetail.swift in Sources */,
 				F19E0223244D819000410849 /* ContentView.swift in Sources */,
 				F126E36B244E04DA00826FAC /* RegistrationView.swift in Sources */,
-				F1FDD63224709C0000056993 /* TestLoginView.swift in Sources */,
 				F1411B90246DCDAD009A67AC /* AddNewTeam.swift in Sources */,
 				F18CA3FB246C3B80003F6FA6 /* ProjectsData.swift in Sources */,
 				F1C8DA1A24680E1500325315 /* UsersData.swift in Sources */,
